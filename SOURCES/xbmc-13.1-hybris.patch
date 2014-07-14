@@ -1,0 +1,12 @@
+--- a/xbmc/windowing/egl/EGLWrapper.cpp	2014-07-13 04:57:18.596223611 +0200
++++ b/xbmc/windowing/egl/EGLWrapper.cpp	2014-07-13 04:57:06.928802324 +0200
+@@ -83,7 +83,9 @@
+   // that we know will work
+   if ((nativeGuess = CreateEGLNativeType<CEGLNativeTypeWayland>(implementation)) ||
+       (nativeGuess = CreateEGLNativeType<CEGLNativeTypeAndroid>(implementation)) ||
++#if defined(TARGET_HYBRIS)
+       (nativeGuess = CreateEGLNativeType<CEGLNativeTypeHybris>(implementation)) ||
++#endif
+       (nativeGuess = CreateEGLNativeType<CEGLNativeTypeAmlogic>(implementation)) ||
+       (nativeGuess = CreateEGLNativeType<CEGLNativeTypeRaspberryPI>(implementation)))
+   {
